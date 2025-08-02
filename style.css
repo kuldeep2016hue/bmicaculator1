@@ -117,7 +117,8 @@ p {
     margin-top: 30px;
     font-family: 'Audiowide', cursive;
     font-size: 18px;
-    color: #4c1d95; /* Dark violet text */
+    /* FIX: Changed color to a darker, more visible shade */
+    color: #3b0764; 
     /* The Glow Effect using text-shadow */
     text-shadow:
         0 0 7px #d8b4fe,
