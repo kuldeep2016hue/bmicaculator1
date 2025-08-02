@@ -1,0 +1,119 @@
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Changed background color to light yellow */
+    background-color: #fefae0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the Calculator */
+.container {
+    /* Changed background color to light violet */
+    background-color: #e9d5ff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 {
+    /* Changed font and color */
+    font-family: 'Poppins', sans-serif;
+    color: #e53e3e; /* Red color */
+    margin-bottom: 10px;
+}
+
+p {
+    color: #475569;
+    margin-bottom: 30px;
+}
+
+/* Input Fields Styling */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Button Group Styling */
+.button-group {
+    display: flex;
+    gap: 15px; /* Creates space between the buttons */
+}
+
+/* Shared styles for both buttons */
+.button-group button {
+    flex: 1; /* Allows buttons to grow and fill space equally */
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-group button:active {
+    transform: scale(0.98); /* Adds a slight press effect */
+}
+
+/* Specific style for the Calculate button */
+#calculateBtn {
+    background-color: #2563eb;
+}
+
+#calculateBtn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Specific style for the Clear button */
+#clearBtn {
+    background-color: #64748b;
+}
+
+#clearBtn:hover {
+    background-color: #475569;
+}
+
+/* Result Display Area */
+.result-area {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    min-height: 54px; /* Prevents layout shift */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.4s, color 0.4s;
+}
