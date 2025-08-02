@@ -1,139 +1,65 @@
-/* General Body Styles */
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #fefae0; /* Light yellow */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // Get elements from the DOM
+    const calculateBtn = document.getElementById('calculateBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const weightInput = document.getElementById('weight');
+    const heightInput = document.getElementById('height');
+    const resultDiv = document.getElementById('result');
 
-/* Container for the Calculator */
-.container {
-    background-color: #e9d5ff; /* Light violet */
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-}
+    // --- Event listener for the 'Calculate BMI' button ---
+    calculateBtn.addEventListener('click', () => {
+        // Get input values
+        const weight = parseFloat(weightInput.value);
+        const heightCm = parseFloat(heightInput.value);
 
-h1 {
-    font-family: 'Poppins', sans-serif;
-    color: #e53e3e; /* Red color */
-    margin-bottom: 10px;
-}
+        // Validate inputs
+        if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
+            resultDiv.innerHTML = 'Please enter a valid weight and height.';
+            resultDiv.style.color = '#ef4444'; // Red color for error
+            resultDiv.style.backgroundColor = '#fee2e2';
+            return;
+        }
 
-p {
-    color: #475569;
-    margin-bottom: 30px;
-}
+        // Convert height from cm to meters
+        const heightM = heightCm / 100;
 
-/* Input Fields Styling */
-.input-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
+        // Calculate BMI: weight (kg) / (height (m) * height (m))
+        const bmi = weight / (heightM * heightM);
+        const bmiFormatted = bmi.toFixed(2); // Format to 2 decimal places
 
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #334155;
-    font-weight: 500;
-}
+        // Determine BMI category and corresponding styles
+        let category = '';
+        const color = '#6D4C41'; // Set text color to brown for all categories
+        let bgColor = '';
 
-.input-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
+        if (bmi < 18.5) {
+            category = 'Underweight';
+            bgColor = '#dbeafe'; // Light blue background
+        } else if (bmi >= 18.5 && bmi < 25) {
+            category = 'Normal weight';
+            bgColor = '#dcfce7'; // Light green background
+        } else if (bmi >= 25 && bmi < 30) {
+            category = 'Overweight';
+            bgColor = '#fef3c7'; // Light yellow background
+        } else {
+            category = 'Obesity';
+            bgColor = '#fee2e2'; // Light red background
+        }
 
-.input-group input:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-}
+        // Display the result with the category
+        resultDiv.innerHTML = `Your BMI is <strong>${bmiFormatted}</strong> (${category})`;
+        resultDiv.style.color = color;
+        resultDiv.style.backgroundColor = bgColor;
+    });
 
-/* Button Group Styling */
-.button-group {
-    display: flex;
-    gap: 15px;
-}
+    // --- Event listener for the 'Clear' button ---
+    clearBtn.addEventListener('click', () => {
+        // Clear the input fields
+        weightInput.value = '';
+        heightInput.value = '';
 
-.button-group button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.button-group button:active {
-    transform: scale(0.98);
-}
-
-#calculateBtn {
-    background-color: #2563eb;
-}
-
-#calculateBtn:hover {
-    background-color: #1d4ed8;
-}
-
-#clearBtn {
-    background-color: #64748b;
-}
-
-#clearBtn:hover {
-    background-color: #475569;
-}
-
-/* Result Display Area */
-.result-area {
-    margin-top: 25px;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 500;
-    min-height: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.4s, color 0.4s;
-}
-
-/* Signature Style */
-.signature {
-    margin-top: 30px;
-    font-family: 'Audiowide', cursive;
-    font-size: 18px;
-    color: #4c1d95; /* Dark violet text */
-    /* The Glow Effect using text-shadow */
-    text-shadow:
-        0 0 7px #d8b4fe,
-        0 0 10px #d8b4fe,
-        0 0 21px #c084fc,
-        0 0 42px #a855f7;
-    animation: pulse 2s infinite alternate;
-}
-
-/* Animation for the glowing text */
-@keyframes pulse {
-    to {
-        text-shadow:
-            0 0 5px #e9d5ff,
-            0 0 8px #e9d5ff,
-            0 0 18px #d8b4fe,
-            0 0 38px #c084fc;
-    }
-}
+        // Clear the result display area
+        resultDiv.innerHTML = '';
+        resultDiv.style.backgroundColor = 'transparent'; // Reset background
+    });
+});
