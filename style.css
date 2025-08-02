@@ -1,8 +1,7 @@
 /* General Body Styles */
 body {
     font-family: 'Inter', sans-serif;
-    /* Changed background color to light yellow */
-    background-color: #fefae0; 
+    background-color: #fefae0; /* Light yellow */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,8 +11,7 @@ body {
 
 /* Container for the Calculator */
 .container {
-    /* Changed background color to light violet */
-    background-color: #e9d5ff;
+    background-color: #e9d5ff; /* Light violet */
     padding: 30px 40px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -23,7 +21,6 @@ body {
 }
 
 h1 {
-    /* Changed font and color */
     font-family: 'Poppins', sans-serif;
     color: #e53e3e; /* Red color */
     margin-bottom: 10px;
@@ -52,7 +49,7 @@ p {
     padding: 12px;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    box-sizing: border-box;
     font-size: 16px;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -66,12 +63,11 @@ p {
 /* Button Group Styling */
 .button-group {
     display: flex;
-    gap: 15px; /* Creates space between the buttons */
+    gap: 15px;
 }
 
-/* Shared styles for both buttons */
 .button-group button {
-    flex: 1; /* Allows buttons to grow and fill space equally */
+    flex: 1;
     padding: 12px;
     border: none;
     border-radius: 8px;
@@ -83,10 +79,9 @@ p {
 }
 
 .button-group button:active {
-    transform: scale(0.98); /* Adds a slight press effect */
+    transform: scale(0.98);
 }
 
-/* Specific style for the Calculate button */
 #calculateBtn {
     background-color: #2563eb;
 }
@@ -95,7 +90,6 @@ p {
     background-color: #1d4ed8;
 }
 
-/* Specific style for the Clear button */
 #clearBtn {
     background-color: #64748b;
 }
@@ -111,9 +105,35 @@ p {
     border-radius: 8px;
     font-size: 18px;
     font-weight: 500;
-    min-height: 54px; /* Prevents layout shift */
+    min-height: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.4s, color 0.4s;
+}
+
+/* Signature Style */
+.signature {
+    margin-top: 30px;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    color: #4c1d95; /* Dark violet text */
+    /* The Glow Effect using text-shadow */
+    text-shadow:
+        0 0 7px #d8b4fe,
+        0 0 10px #d8b4fe,
+        0 0 21px #c084fc,
+        0 0 42px #a855f7;
+    animation: pulse 2s infinite alternate;
+}
+
+/* Animation for the glowing text */
+@keyframes pulse {
+    to {
+        text-shadow:
+            0 0 5px #e9d5ff,
+            0 0 8px #e9d5ff,
+            0 0 18px #d8b4fe,
+            0 0 38px #c084fc;
+    }
 }
