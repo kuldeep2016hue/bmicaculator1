@@ -43,6 +43,144 @@ body {
     }
 }
 
+/* Header style with new font */
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+/* Input Fields Styling */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid #334155;
+    color: #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+
+/* Button Group Styling */
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Primary "Calculate" button */
+#calculateBtn {
+    background: linear-gradient(45deg, #38bdf8, #3b82f6);
+    color: white;
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.2);
+}
+
+#calculateBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
+}
+
+/* Secondary "Clear" button */
+#clearBtn {
+    background-color: #334155;
+    color: #94a3b8;
+}
+
+#clearBtn:hover {
+    background-color: #475569;
+    color: #e2e8f0;
+}
+
+/* Result Display Area */
+.result-area {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Initially hidden for animation */
+    transform: scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.4s;
+}
+
+/* Class to trigger the result animation */
+.result-area.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Signature Style with Yellow Glow */
+.signature {
+    margin-top: 30px;
+    font-family: 'Audiowide', cursive;
+    font-size: 1rem;
+    color: #eab308; /* Yellow */
+    text-shadow:
+        0 0 5px rgba(234, 179, 8, 0.5),
+        0 0 15px rgba(234, 179, 8, 0.5),
+        0 0 30px rgba(234, 179, 8, 0.3);
+    animation: pulse 2.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        text-shadow:
+            0 0 5px rgba(234, 179, 8, 0.5),
+            0 0 15px rgba(234, 179, 8, 0.5),
+            0 0 30px rgba(234, 179, 8, 0.3);
+    }
+    to {
+        text-shadow:
+            0 0 10px rgba(250, 204, 21, 0.7),
+            0 0 25px rgba(250, 204, 21, 0.7),
+            0 0 50px rgba(250, 204, 21, 0.5);
+    }
+}        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Header style */
 h1 {
     font-weight: 600;
@@ -370,5 +508,6 @@ h1 {
             0 0 38px #c084fc;
     }
 }
+
 
 
