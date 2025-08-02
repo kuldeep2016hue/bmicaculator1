@@ -112,6 +112,103 @@ p {
     transition: background-color 0.4s, color 0.4s;
 }
 
+/* Signature Style with Yellow Glow */
+.signature {
+    margin-top: 30px;
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    color: #b8860b; /* Dark Goldenrod */
+    /* The Glow Effect using text-shadow */
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #ffc107,
+        0 0 82px #ffc107,
+        0 0 92px #ffc107,
+        0 0 102px #ffc107,
+        0 0 151px #ffc107;
+    animation: pulse 2s infinite alternate;
+}
+
+/* Animation for the glowing text */
+@keyframes pulse {
+    to {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 8px #fff,
+            0 0 18px #fff,
+            0 0 38px #ffd700,
+            0 0 73px #ffd700,
+            0 0 80px #ffd700,
+            0 0 94px #ffd700,
+            0 0 140px #ffd700;
+    }
+}    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Button Group Styling */
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-group button:active {
+    transform: scale(0.98);
+}
+
+#calculateBtn {
+    background-color: #2563eb;
+}
+
+#calculateBtn:hover {
+    background-color: #1d4ed8;
+}
+
+#clearBtn {
+    background-color: #64748b;
+}
+
+#clearBtn:hover {
+    background-color: #475569;
+}
+
+/* Result Display Area */
+.result-area {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.4s, color 0.4s;
+}
+
 /* Signature Style */
 .signature {
     margin-top: 30px;
@@ -138,3 +235,4 @@ p {
             0 0 38px #c084fc;
     }
 }
+
