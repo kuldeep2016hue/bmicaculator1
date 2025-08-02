@@ -8,58 +8,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Event listener for the 'Calculate BMI' button ---
     calculateBtn.addEventListener('click', () => {
-        // Get input values
+        // Always remove the 'show' class to re-trigger the animation
+        resultDiv.classList.remove('show');
+
         const weight = parseFloat(weightInput.value);
         const heightCm = parseFloat(heightInput.value);
 
-        // Validate inputs
         if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
             resultDiv.innerHTML = 'Please enter a valid weight and height.';
-            resultDiv.style.color = '#ef4444'; // Red color for error
-            resultDiv.style.backgroundColor = '#fee2e2';
+            resultDiv.style.backgroundColor = 'rgba(239, 68, 68, 0.2)';
+            resultDiv.style.color = '#f87171';
+            // Use a timeout to allow the class removal to register before adding it again
+            setTimeout(() => resultDiv.classList.add('show'), 10);
             return;
         }
 
-        // Convert height from cm to meters
         const heightM = heightCm / 100;
-
-        // Calculate BMI: weight (kg) / (height (m) * height (m))
         const bmi = weight / (heightM * heightM);
-        const bmiFormatted = bmi.toFixed(2); // Format to 2 decimal places
+        const bmiFormatted = bmi.toFixed(2);
 
-        // Determine BMI category and corresponding styles
         let category = '';
-        const color = '#6D4C41'; // Set text color to brown for all categories
+        let color = '';
         let bgColor = '';
 
         if (bmi < 18.5) {
             category = 'Underweight';
-            bgColor = '#dbeafe'; // Light blue background
+            color = '#60a5fa'; // Blue
+            bgColor = 'rgba(96, 165, 250, 0.15)';
         } else if (bmi >= 18.5 && bmi < 25) {
             category = 'Normal weight';
-            bgColor = '#dcfce7'; // Light green background
+            color = '#4ade80'; // Green
+            bgColor = 'rgba(74, 222, 128, 0.15)';
         } else if (bmi >= 25 && bmi < 30) {
             category = 'Overweight';
-            bgColor = '#fef3c7'; // Light yellow background
+            color = '#facc15'; // Yellow
+            bgColor = 'rgba(250, 204, 21, 0.15)';
         } else {
             category = 'Obesity';
-            bgColor = '#fee2e2'; // Light red background
+            color = '#f87171'; // Red
+            bgColor = 'rgba(248, 113, 113, 0.15)';
         }
 
-        // Display the result with the category
         resultDiv.innerHTML = `Your BMI is <strong>${bmiFormatted}</strong> (${category})`;
         resultDiv.style.color = color;
         resultDiv.style.backgroundColor = bgColor;
+        
+        // Use a timeout to allow the style changes to apply before the animation starts
+        setTimeout(() => resultDiv.classList.add('show'), 10);
     });
 
     // --- Event listener for the 'Clear' button ---
     clearBtn.addEventListener('click', () => {
-        // Clear the input fields
         weightInput.value = '';
         heightInput.value = '';
-
-        // Clear the result display area
         resultDiv.innerHTML = '';
-        resultDiv.style.backgroundColor = 'transparent'; // Reset background
+        resultDiv.classList.remove('show'); // Hide the result area with animation
     });
 });
